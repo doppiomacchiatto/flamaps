@@ -12,7 +12,7 @@ app.use("/scripts", express.static(__dirname + '/public/javascripts'));
 app.use("/images",  express.static(__dirname + '/public/images'));
 
 // Set the view directory to /views
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 5000);
 app.set("views", __dirname + "/views");
 //app.engine('.html', require('ejs').renderFile);
 app.set('view engine', 'jade');
