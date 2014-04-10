@@ -33,9 +33,6 @@ app.get('/', routes.index);
 app.get('/about', about.me);
 app.get('/v1/map/flamil', fla.mil);
 app.get('/v1/map/flcen',census.flcen);
-//http.createServer(app).listen(app.get('port'), function(){
-//  console.log('Express server listening on port ' + app.get('port'));
-//});
-app.listen(port, function() {
-  console.log("Listening on " + port);
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
