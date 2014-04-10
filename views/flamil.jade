@@ -1,0 +1,19 @@
+extends layout
+block append head
+   script(data-main="/scripts/mbmain", src="/scripts/require.js")
+   link(href="/styles/bootstrap.min.css" rel="stylesheet")
+   link(href="https://api.tiles.mapbox.com/mapbox.js/v1.6.2/mapbox.css" rel="stylesheet")
+   script(type='text/javascript').
+      function loadmap(){
+         console.log("setting map");
+         var map = L.map('map').setView([28.1, -82.82], 7);
+         L.control.layers({'Florida Mil': L.mapbox.tileLayer('jsantisi.hh5513f3').addTo(map),
+        'Florida OSM': L.mapbox.tileLayer('jsantisi.hk84647m')
+         }).addTo(map);
+       }
+block content
+  div.container.marketing 
+    div.jumbotron
+      | <br><br>
+      div.container
+        div#map(style="width:800px; height:600px; margin:0 auto;")

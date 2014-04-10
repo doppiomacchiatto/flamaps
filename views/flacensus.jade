@@ -1,0 +1,38 @@
+extends layout
+block append head
+   script(data-main="/scripts/require_leaflet", src="/scripts/require.js")
+   link(href="/styles/bootstrap.min.css" rel="stylesheet")
+   link(href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" rel="stylesheet")
+   script(type='text/javascript').
+      function loadmap(){
+        console.log("setting map");
+        var tilesUrl2="http://jtilestream.herokuapp.com/v2/FlaPop/{z}/{x}/{y}.png";
+        var tilesLayer = new L.tileLayer(tilesUrl2);
+        var cloudmadeUrl = 'http://{s}.tile.cloudmade.com/74bf8672ba714aab88af7bae7fbf518d/{styleId}/256/{z}/{x}/{y}.png',
+        cloudmadeAttribution = 'Map data &copy; 2011 OpenStreetMap contributors, Imagery &copy; 2011 CloudMade';
+        
+        var minimal = L.tileLayer(cloudmadeUrl, {styleId: 22677, attribution: cloudmadeAttribution}),
+            normal =  L.tileLayer(cloudmadeUrl, {styleId: 1930, attribution: cloudmadeAttribution}),
+            midnight = L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution});
+        
+        var map = L.map('map',{
+           center: [28.1, -81.6],
+           zoom: 7,
+           layers: [minimal,normal]
+        });
+        var baseMaps = {
+            "Minimal": minimal,
+            "Midnight": midnight,
+            "Normal": normal};
+        
+        var overlayMaps = {
+            "Florida Census 2010": tilesLayer
+        };
+        L.control.layers(baseMaps, overlayMaps).addTo(map);
+       }
+block content
+  div.container.marketing 
+    div.jumbotron
+      | <br><br>
+      div.container
+        div#map(style="width:800px; height:700px; margin:0 auto;")

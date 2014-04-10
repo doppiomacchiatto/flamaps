@@ -1,0 +1,25 @@
+div.navbar-wrapper
+  div.container
+    div.navbar.navbar-inverse.navbar-static-top(role="navigation")
+      div.container
+        div.navbar-header
+           button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
+             span.sr-only Toggle navigation
+             span.icon-bar
+             span.icon-bar
+             span.icon-bar
+         a.navbar-brand(href="#") fLg
+         .collapse.navbar-collapse.navbar-ex1-collapse
+            ul.nav.navbar-nav
+              li.active
+                 a(href="/") Home
+              li
+                 a(href="/about") About
+              li.dropdown
+                  a.dropdown-toggle(href="#" data-toggle="dropdown") Map Menu 
+                      b.caret
+                   ul.dropdown-menu
+                     li
+                       a(href="/v1/map/flamil") Florida Military Installations
+                     li
+                       a(href="/v1/map/flcen") 2010 Florida Census

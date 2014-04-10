@@ -1,0 +1,24 @@
+extends layout
+block append head
+   script(data-main="/scripts/main", src="/scripts/require.js")
+block content
+  div.container
+    div.jumbotron
+      div.content
+        div.page-header
+            h2 About
+        div.row
+           .col-lg-8
+              div.thumbnail
+              img.img-circle(src='images/photo.jpg', alt='Generic placeholder image')
+              div.caption
+                 p(class='text-justify').
+                    I am a Scrum Product Owner by day and a software engineer by night.  I enjoy analyzing Geospatial 
+                    data and developing highly scalable applications with Node.js, Java and PostGIS 
+                    In my spare time, I write blogs about technology and agile.  You can find me in Northern, VA at Scrum meetups, soccer fields
+                    or bike trails.  Feel free to drop me a line at <a href="mailto:juan.santisi@gmail.com"> JSantisi
+         div-row
+             p
+                a.btn.btn-default(href='http://jsantisi.com') My Blog Details...
+     div#footerContainer
+      include footer

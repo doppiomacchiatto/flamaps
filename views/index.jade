@@ -1,0 +1,22 @@
+extends layout
+block append head
+   script(data-main="/scripts/main", src="/scripts/require.js")
+block content
+  div.container
+    div.jumbotron
+      div.content
+        div.page-header
+           h2 Welcome to the Unofficial State of Florida Geospatial maps.
+        div.row
+          div.span10
+             p(class='text-justify'). small
+                      The data that this geospatial application contains
+                      was derived from the U.S. Census Bureau and the State of Florida Geospatial site.  In order to create the best looking
+                      maps, I used Tilemill And Tilestream from <a href="http://www.Mapbox.com">Mapbox.</a> and other Cloud Service Providers will render maps & tiles for your geospatial applications for a monthly fee.  
+                      If you want to host your own, follow my blog's step-by-step details on how to setup your tile server.
+        div.row
+           div.span4
+             p
+                a.btn.btn-default(href='http://jsantisi.com') Learn more
+     div#footerContainer
+      include footer
