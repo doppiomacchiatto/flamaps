@@ -21,18 +21,18 @@ Heroku: Comming Soon
 <h3>GeoSpatial Data Processing </h3>
 In today's data driven world, there are plenty of free sites that provide geospatial data.  I wanted to process meaningful data using the <a href="http://www.gdal.org">GDAL</a> Libraries.  I found a post on the <a href="http://blog.apps.chicagotribune.com/2011/03/08/making-maps-1/">Chicage Tribune</a> that walked you through a similar scenario (PostGIS, GDAL, Mapbox and Node.js).  Except that it was for the State of Illinois and it was written back in 2011 - many changes to the software stack since then - but a quality blog entry indeed.  In a nutshell, here are the steps to process your geospatial data.
 
-1. Download the geo-data from U.S. Census Bureau. You have to use the American FactFinder site and search for <i>Population and Housing Occupancy Status: 2010 - County -- Census Tract</i>. In your search criteria, Filter for the State of Florida and All Counties.  This data set will provide you with the Population by county.  Download your states geometry from 
+1. Download the geo-data from U.S. Census Bureau. You have to use the American FactFinder site and search for <i>Population and Housing Occupancy Status: 2010 - County -- Census Tract</i>. In your search criteria, Filter for the State of Florida and All Counties.  This data set will provide you with the Population by county.
 2. Using cvscut (a github project), parse the census data. :>./csvcut -f 4,6,7 -o "," DEC_10_PL_GCTPL2.ST05/DEC_10_GCTPL2.CY10_with_ann.csv | tail +4 > population.csv
-4. Load the Census data into a GeoSpatial enabled RDBMS
-5. Download a shapefile for the <a href="http://www2.census.gov/geo/tiger/TIGER2010/COUNTY/2010/tl_2010_12_county10.zip">State of Florida</a> - geographic region. Or your state by code tl_2010_<2 digit state code>_county10.zip
+4. Load the Census data into a GeoSpatial enabled RDBMS.
+5. Download a shapefile for the <a href="http://www2.census.gov/geo/tiger/TIGER2010/COUNTY/2010/tl_2010_12_county10.zip">State of Florida</a> - geographic region. Or your state by code tl_2010_<2 digit state code>_county10.zip.
 6. Load the geometry using GDAL ogr2ogr utility and set the Spherical Mercator.  You must know the tiles that you are using and the Spherical Mercator (EPSG3857 or EPSG4326).
 7. Export the merged table with ogr2ogr into a Shapefile
 8. Import the Shapefile into Tilemill or point TileMill to the RDBMS.
 9. Make your map layer look good.
-10. Publish your map layer to Mapbox
+10. Publish your map layer to Mapbox.
 11. Export your TileMill mbtiles (/Users/<user>/Documents/Mapbox/tiles/....)
-12. Create a Github project with the mbtiles
-13. Deploy the mbtiles project to Heroku (Your map layer will now be available on the Web and the Node.js application points to the this TileStream server)
+12. Create a Github project with the mbtiles.
+13. Deploy the mbtiles project to Heroku (Your map layer will now be available on the Web and the Node.js application points to the this TileStream server).
 
 
 
