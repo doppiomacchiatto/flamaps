@@ -5,7 +5,7 @@ This Node.js application displays two GeoSpatial maps with data from the State o
 
 <b>Node.js Highlights:</b>
 Express with Jade (Templating and layout)
-Integrated with Bootstrap, mapbox.js, leaflet.js and <a href="http://www.require.js">require.js</a>
+Integrated with Bootstrap, mapbox.js, leaflet.js and <a href="http://www.requirejs.org">require.js</a>
 
 The Node.js application is hosted on Heroku.  Look at the heroku section of this readme for additional information.
 
