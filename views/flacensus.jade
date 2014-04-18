@@ -16,6 +16,7 @@ block append head
             midnight = L.tileLayer(cloudmadeUrl, {styleId: 999, attribution: cloudmadeAttribution});
         
         var map = L.map('map',{
+           crs: L.CRS.EPSG3857,
            center: [28.1, -81.6],
            zoom: 7,
            layers: [minimal,normal]
